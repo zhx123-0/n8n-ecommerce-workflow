@@ -40,6 +40,14 @@ docker run -d --name n8n -p 5678:5678 n8nio/n8n
 # 将 workflow-code.js 内容粘贴到 Code 节点中
 ```
 
+## 工作流截图
+
+### 节点流程图
+![n8n 工作流节点](节点图.png)
+
+### AI 生成结果
+![AI 电商文案输出](ai电商结果图.png)
+
 ## 输出示例
 
 ```json
