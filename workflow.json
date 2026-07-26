@@ -1,0 +1,41 @@
+{
+  "name": "跨境电商 AI 文案自动生成",
+  "description": "n8n + Coze API 工作流：读取产品数据 → AI 生成英文文案 → 格式化输出。适用于 Amazon/Temu/TikTok Shop 等跨境电商平台。",
+  "nodes": [
+    {
+      "name": "手动触发",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [0, 300]
+    },
+    {
+      "name": "产品数据",
+      "type": "n8n-nodes-base.set",
+      "position": [250, 300],
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "productName", "value": "蓝牙降噪耳机" },
+            { "name": "sku", "value": "BT-2026-PRO" },
+            { "name": "features", "value": "主动降噪、30小时续航、Type-C快充、IPX5防水" },
+            { "name": "priceUSD", "value": "29.99" },
+            { "name": "market", "value": "Amazon US" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "AI 文案生成",
+      "type": "n8n-nodes-base.code",
+      "position": [500, 300],
+      "parameters": {
+        "jsCode": "（见 workflow-code.js）"
+      }
+    }
+  ],
+  "connections": {
+    "手动触发": { "main": [[ { "node": "产品数据", "type": "main", "index": 0 } ]] },
+    "产品数据": { "main": [[ { "node": "AI 文案生成", "type": "main", "index": 0 } ]] }
+  },
+  "tags": ["跨境电商", "AI", "自动化", "Coze", "RPA"],
+  "settings": {}
+}
